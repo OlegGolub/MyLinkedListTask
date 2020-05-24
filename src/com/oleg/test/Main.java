@@ -1,22 +1,38 @@
 package com.oleg.test;
 
 import static com.oleg.test.PrimitiveArray.*;
+
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 public class Main {
 
     public static void main(String[] args) {
       //testUtil1();
-      testMyList();
+      //testMyList();
 
-      testMyListInteger();
+      //List listWithDuplicates = Arrays.asList("1", "1", "2");
+      //DuplicateSearcher.DuplcateInfo info= DuplicateSearcher.getDuplicate(listWithDuplicates);
 
 
-      testMiddle();
+      List<Integer>  fi = Fibonacci.getFibonacci(10);
+      System.out.println("Fi test are :["+fi + "]");
 
-      testCycled();
+      //System.out.println("Searcher duplicates: src=["+listWithDuplicates.toString()+"] dupl is : ["+info+"]");
 
-      testMiddle();
+
+      //testMyListInteger();
+
+     // String test = "123456789";
+     // String mirror = StringReplacer.mirrorString(test);
+     // System.out.println("Mirror: [" + test +"] became: [" + mirror + "]");
+
+      //testMiddle();
+
+     // testCycled();
+
+    //  testMiddle();
     }
 
     public static void testUtil1(){
