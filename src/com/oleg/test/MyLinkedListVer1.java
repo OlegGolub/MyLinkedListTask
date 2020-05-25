@@ -1,8 +1,10 @@
 package com.oleg.test;
 
 //import org.apache.commons.collections4.CollectionUtils;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import org.omg.CORBA.Object;
 
 //Как найти средний элемент в LinkedList за один проход?
 public class MyLinkedListVer1<E> {
@@ -19,6 +21,13 @@ public class MyLinkedListVer1<E> {
   public MyLinkedListVer1(E data){
     head = new MyNode(data);
     size++;
+  }
+
+  public void printReverse(MyNode node){
+    if(node!=null){
+      printReverse(node.next);
+      System.out.print(" "+node.data);
+    }
   }
 
   public void add(E data){
@@ -94,4 +103,8 @@ public class MyLinkedListVer1<E> {
       next=null;
     }
   }
+
+  //Как развернуть LinkedList, используя рекурсию
+
+
 }

@@ -5,19 +5,38 @@ import static com.oleg.test.PrimitiveArray.*;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.DoubleStream;
 
 public class Main {
+  static int data = 0;
+  static boolean run = true;
 
     public static void main(String[] args) {
+
+      new Thread(() -> {data = 1;run = false;}).start();
+
+      while (run) {/*NOP*/};
+      System.out.println(" test volatile: "+data);
+
       //testUtil1();
       //testMyList();
 
       //List listWithDuplicates = Arrays.asList("1", "1", "2");
       //DuplicateSearcher.DuplcateInfo info= DuplicateSearcher.getDuplicate(listWithDuplicates);
+//      MyLinkedListVer1 list = new MyLinkedListVer1();
+//      list.add(1);
+//      list.add(2);
+//      list.add(3);
+//      list.add(4);
+//      list.add(5);
+//      list.add(6);
+//      list.printReverse(list.head);
+      double[]  sourceArray = {4,5,6,6,7,87,4,9,9,90};
+      DoubleStream doubleStream1 = DoubleStream.of(sourceArray);
+      doubleStream1.forEach(e->System.out.print(" "+e));
 
-
-      List<Integer>  fi = Fibonacci.getFibonacci(10);
-      System.out.println("Fi test are :["+fi + "]");
+      //List<Integer>  fi = Fibonacci.getFibonacci(10);
+      //System.out.println("Fi test are :["+fi + "]");
 
       //System.out.println("Searcher duplicates: src=["+listWithDuplicates.toString()+"] dupl is : ["+info+"]");
 
@@ -33,6 +52,12 @@ public class Main {
      // testCycled();
 
     //  testMiddle();
+
+//      System.out.println("Is digit: 32432432423 a palindrome: "+ Palindrome.isPalindrome(322432423));
+//      System.out.println("Is digit: 123321 a palindrome: "+ Palindrome.isPalindrome(123321));
+//      System.out.println("Is digit: 77 a palindrome: "+ Palindrome.isPalindrome(77));
+//      System.out.println("Is digit: 1 a palindrome: "+ Palindrome.isPalindrome(1));
+//      System.out.println("Is digit: 23 a palindrome: "+ Palindrome.isPalindrome(23));
     }
 
     public static void testUtil1(){

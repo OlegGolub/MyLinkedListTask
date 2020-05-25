@@ -92,14 +92,20 @@ public class PrimitiveArray {
   public static double foo(double[] sourceArray) throws RuntimeException {
     if (sourceArray==null || sourceArray.length==0)  throw new RuntimeException("null");
 
+    //1
     DoubleStream.of(sourceArray).boxed().collect(Collectors.toList());
 
+    //2
     Arrays.stream(sourceArray).boxed().collect(Collectors.toList());
 
+    //3
     List<Double> list = new ArrayList<>(sourceArray.length);
     for(int i = 0; i< sourceArray.length; i++){
       list.add(sourceArray[i]);
     }
+
+    //4
+    DoubleStream doubleStream1 = DoubleStream.of(sourceArray);
 
     DoubleStream doubleStream = list.stream().mapToDouble(e->e.longValue());
 
@@ -108,7 +114,6 @@ public class PrimitiveArray {
     double max = doubleStream.max().getAsDouble();
     double min = doubleStream.min().getAsDouble();
     double result = (max-min) % avarage;
-    //log("");
     return  result;
   }
 

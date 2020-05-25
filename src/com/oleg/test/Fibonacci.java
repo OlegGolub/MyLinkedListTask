@@ -16,7 +16,8 @@ public class Fibonacci {
   }
 
   public static int getFibonacciDigit(int index) {
-    if (index <2) return 1;
+    if (index ==0) return 0;
+    if (index ==1) return 1;
       return getFibonacciDigit(index - 2) + getFibonacciDigit(index - 1);
   }
 }
