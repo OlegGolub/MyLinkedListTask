@@ -6,10 +6,9 @@ public class Palindrome {
   }
 
   public static boolean isPalindrome(String value){
-    String valueStr = String.valueOf(value);
-    int length = valueStr.length();
+    int length = value.length();
     for(int i=0; i<length/2; i++){
-      if(valueStr.charAt(i)!=valueStr.charAt(length-1-i)) {
+      if(value.charAt(i)!=value.charAt(length-1-i)) {
         return false;
       }
     }

@@ -1,26 +1,13 @@
 package com.oleg.test;
 
-//import org.apache.commons.collections4.CollectionUtils;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import org.omg.CORBA.Object;
-
 //Как найти средний элемент в LinkedList за один проход?
 public class MyLinkedListVer1<E> {
-
-  LinkedList list = new LinkedList();
 
   MyNode  head = null;
   MyNode  tail = null;
   int size=0;
 
   public MyLinkedListVer1(){
-  }
-
-  public MyLinkedListVer1(E data){
-    head = new MyNode(data);
-    size++;
   }
 
   public void printReverse(MyNode node){
@@ -47,7 +34,7 @@ public class MyLinkedListVer1<E> {
       return "MyLinkedListUtil empty";
     }
     StringBuilder sb = new StringBuilder();
-    MyNode ptr= head;
+    MyNode ptr = head;
     while(ptr!=null){
       sb.append(ptr.data).append(",");
       ptr=ptr.next;
@@ -76,6 +63,35 @@ public class MyLinkedListVer1<E> {
         }
         return (E) middleNode.data;
   }
+
+  public E getIFromTheLast(int offset){
+    MyNode  destNode=head;
+    MyNode  fast= head;
+    int count = 0;
+
+    while(fast!=null){
+      fast=fast.next;
+      if(count>offset){
+        destNode=destNode.next;
+      }
+      count ++;
+    }
+    return (E) destNode.data;
+  }
+
+  public void getNthFromTheLast( int offset){
+    getNthFromTheLast(head, offset);
+  }
+  //напечатать рекурсией
+  private int getNthFromTheLast(MyNode node, int offset){
+     if(node==null)  return 0;
+     int index = getNthFromTheLast(node.next, offset) + 1;
+     if(offset==index){
+       System.out.println(node.data);
+     }
+     return index;
+  }
+
   public boolean isCycled(){
 
     MyNode fast = head;
@@ -103,8 +119,4 @@ public class MyLinkedListVer1<E> {
       next=null;
     }
   }
-
-  //Как развернуть LinkedList, используя рекурсию
-
-
 }

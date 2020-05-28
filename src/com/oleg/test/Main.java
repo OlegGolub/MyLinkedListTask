@@ -4,6 +4,7 @@ import static com.oleg.test.PrimitiveArray.*;
 
 import java.util.Arrays;
 import java.util.List;
+import java.lang.Integer;
 import java.util.Random;
 import java.util.stream.DoubleStream;
 
@@ -13,24 +14,35 @@ public class Main {
 
     public static void main(String[] args) {
 
-      new Thread(() -> {data = 1;run = false;}).start();
 
-      while (run) {/*NOP*/};
-      System.out.println(" test volatile: "+data);
+
+//      new Thread(() -> {data = 1;run = false;}).start();
+//
+//      while (run) {/*NOP*/};
+//      System.out.println(" test volatile: "+data);
 
       //testUtil1();
       //testMyList();
 
       //List listWithDuplicates = Arrays.asList("1", "1", "2");
       //DuplicateSearcher.DuplcateInfo info= DuplicateSearcher.getDuplicate(listWithDuplicates);
-//      MyLinkedListVer1 list = new MyLinkedListVer1();
-//      list.add(1);
-//      list.add(2);
-//      list.add(3);
-//      list.add(4);
-//      list.add(5);
-//      list.add(6);
-//      list.printReverse(list.head);
+
+      MyLinkedListVer1 list = new MyLinkedListVer1();
+      list.add(1);
+      list.add(2);
+      list.add(3);
+      list.add(4);
+      list.add(5);
+      list.add(6);
+      list.add(7);
+      list.add(8);
+      list.add(9);
+      list.add(10);
+      Integer data = (Integer) list.getIFromTheLast(3);
+
+
+
+      list.printReverse(list.head);
       double[]  sourceArray = {4,5,6,6,7,87,4,9,9,90};
       DoubleStream doubleStream1 = DoubleStream.of(sourceArray);
       doubleStream1.forEach(e->System.out.print(" "+e));
