@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class PrimitiveArray {
   /** Дан массив double[ N ], необходимо реализовать на Java метод, возвращающий частное от деления разности максимального с минимальным элементов
@@ -23,9 +24,10 @@ public class PrimitiveArray {
     return Arrays.stream(arrayInts).boxed().collect(Collectors.toList());
   }
 
-  // не работает!!!!!!!!!!!!!!!!!!!!!!!!!!
+  // не работает!  Создается ЛИСт с ОДНИМ элементов ввиде массива
   public static List getList3(int[] arrayInts){
     List<?> list = Arrays.asList(arrayInts);
+    List list2  = Stream.of(arrayInts).collect(Collectors.toList());
     return list;
   }
 
@@ -37,6 +39,9 @@ public class PrimitiveArray {
     return list;
   }
 
+  public static List getList5(int[] arrayInts){
+    return Stream.of(arrayInts).collect(Collectors.toList());
+  }
 
 
   public static int[] sort(int[] sourceArray) throws RuntimeException{
@@ -109,14 +114,18 @@ public class PrimitiveArray {
 
     DoubleStream doubleStream = list.stream().mapToDouble(e->e.longValue());
 
-    double avarage =  doubleStream.average().getAsDouble(); // must be
-    if(avarage==0) throw  new RuntimeException();
+    double average =  doubleStream.average().getAsDouble(); // must be
+    if(average==0) throw  new RuntimeException();
     double max = doubleStream.max().getAsDouble();
     double min = doubleStream.min().getAsDouble();
-    double result = (max-min) % avarage;
+    double result = (max-min) % average;
     return  result;
   }
 
-
+  public static void main(String[] args) {
+      int[] array  ={1,2,3,4,5,45,7};
+      List<Integer>  lI = IntStream.of(array).boxed().collect(Collectors.toList());
+     System.out.println(lI.toString());
+  }
 
 }
