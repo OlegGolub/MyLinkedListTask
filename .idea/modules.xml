@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/MyLinkedListTask.iml" filepath="$PROJECT_DIR$/.idea/MyLinkedListTask.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MyLinkedListTask.iml" filepath="$PROJECT_DIR$/MyLinkedListTask.iml" />
     </modules>
   </component>
 </project>
